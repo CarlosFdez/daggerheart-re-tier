@@ -25,8 +25,8 @@ jobs:
         shell: bash
         id: get-version
         run: |
-          SYSTEM_VERSION=$(grep -oP '(?<="version": ")[^"]+' module.json | tr -d '\n')
-          echo "systemVersion=$SYSTEM_VERSION" >> $GITHUB_ENV
+          MODULE_VERSION=$(grep -oP '(?<="version": ")[^"]+' module.json | tr -d '\n')
+          echo "moduleVersion=$MODULE_VERSION" >> $GITHUB_ENV
 
       # Create a release for this specific version
       - name: Create Release
@@ -34,9 +34,9 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true # set this to false if you want to prevent updating existing releases
-          name: ${{ env.systemVersion }}
+          name: ${{ env.moduleVersion }}
           draft: false
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: './module.json,./module.zip'
-          tag: ${{ env.systemVersion }}
+          tag: ${{ env.moduleVersion }}
