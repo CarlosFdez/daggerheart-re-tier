@@ -1,6 +1,6 @@
 {
-  "id": "daggerheart-retier",
-  "title": "Daggerheart Retier",
+  "id": "daggerheart-re-tier",
+  "title": "Daggerheart Re-tier",
   "version": "1.0.0",
   "compatibility": {
     "minimum": "13",
@@ -12,9 +12,6 @@
       "flags": {}
     }
   ],
-  "flags": {
-    "canUpload": true
-  },
   "relationships": {
     "systems": [
       {
@@ -25,5 +22,5 @@
     ]
   },
   "esmodules": ["index.mjs"],
-  "description": ""
+  "description": "A daggerheart module used to increase or decrease the tier of adversaries"
 }
