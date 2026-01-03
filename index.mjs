@@ -111,7 +111,11 @@ function parseDamage(damage) {
     const formula = damage.parts
         .filter((p) => p.applyTo === "hitPoints")
         .map((p) =>
-            p.value.custom.enabled ? p.value.custom.formula : `${p.value.flatMultiplier}${p.value.dice}+${p.value.bonus}`
+            p.value.custom.enabled
+                ? p.value.custom.formula
+                : [p.value.flatMultiplier ? `${p.value.flatMultiplier}${p.value.dice}` : 0, p.value.bonus ?? 0]
+                        .filter(p => !!p)
+                        .join('+')
         )
         .join("+");
     const terms = parseTermsFromSimpleFormula(formula);
