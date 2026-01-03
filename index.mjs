@@ -94,7 +94,7 @@ async function retierAdversary(actor, tier) {
 
             const oldFormulaRegexp = new RegExp(formula.replace("+", "(?:\\s)?\\+(?:\\s)?"));
             const newFormula = parseDamage(action.damage).formula;
-            item.system.description = action.description.replace(oldFormulaRegexp, newFormula);
+            item.system.description = item.system.description.replace(oldFormulaRegexp, newFormula);
             action.description = action.description.replace(oldFormulaRegexp, newFormula);
         }
     }
